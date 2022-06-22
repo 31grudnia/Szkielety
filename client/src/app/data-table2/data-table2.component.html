@@ -1,0 +1,71 @@
+<div class="container">
+  <mat-table
+    style="width: auto"
+    class="mat-elevation-z8"
+    [dataSource]="dataSource"
+    matSort
+    (matSortChange)="announceSortChange($event)"
+  >
+    <ng-container matColumnDef="id">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by number"
+        (click)="ngOnInit()"
+        >ID</mat-header-cell
+      >
+      <mat-cell *matCellDef="let ar">{{ ar.id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="kod">
+      <mat-header-cell *matHeaderCellDef>Kod</mat-header-cell>
+      <mat-cell *matCellDef="let ar">{{ ar.kod }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nazwa">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by name"
+        >Nazwa</mat-header-cell
+      >
+      <mat-cell *matCellDef="let ar">{{ ar.nazwa }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rodzajTowaru">
+      <mat-header-cell *matHeaderCellDef>RodzajTowaru</mat-header-cell>
+      <mat-cell *matCellDef="let ar">{{ ar.rodzajeTowaru }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rok">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by name"
+        >Rok</mat-header-cell
+      >
+      <mat-cell *matCellDef="let ar">{{ ar.rok }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="wartosc">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by name"
+        >Wartość</mat-header-cell
+      >
+      <mat-cell *matCellDef="let ar">{{ ar.wartosc }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let ar; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    #paginator
+    [pageSizeOptions]="[10, 20, 50, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
